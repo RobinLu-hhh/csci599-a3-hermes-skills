@@ -46,7 +46,7 @@ Python 未安装时先安装 Python；缺解释器时脚本不能产生 JSON。m
 
 ## 版本、升级与重装
 
-当前版本 1.0.1，固定参考环境 Hermes v0.22.7 / Python 3.14.9 Linux；标准库脚本另在 macOS Python 3.11 验证。其他 Hermes/操作系统组合未宣称通过。
+当前版本 1.0.2，固定参考环境 Hermes v0.22.7 / Python 3.14.9 Linux；标准库脚本另在 macOS Python 3.11 验证。其他 Hermes/操作系统组合未宣称通过。
 
 更新前备份自己的技能修改和旧 commit。先查看 `hermes skills update --help`、`hermes skills uninstall --help`，使用当前 CLI 支持的操作；不要假定所有版本参数一致。更新后重新执行一次真实天气任务。失败可用 `hermes skills uninstall a3-weather` 后，从同一 tap 的上一已验收内容重装并核对文件哈希；仓库分支变动时先确认内容，不能用直链冒充 tap 安装。曾手工安装同名天气插件者应使用干净 HERMES_HOME，避免旧工具掩盖新安装失败。
 
