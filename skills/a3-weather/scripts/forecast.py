@@ -67,9 +67,18 @@ def failure(code, cause, fix):
                       'cause': cause, 'fix': fix, 'docs': DOCS}}
 
 
+def report(value):
+    lines = ['日期 | 最高°C | 最低°C | 降雨概率%', '--- | --- | --- | ---']
+    for day in value['days']:
+        lines.append(f"{day['date']} | {day['highC']} | {day['lowC']} | {day['rainProbabilityPct']}%")
+    return '\n'.join(lines + ['timezone: '+value['timezone'], 'fetchedAt: '+value['fetchedAt'],
+                             '来源: '+value['source'], value['attribution']])
+
+
 def main():
     try:
         value = forecast()
+        value['report'] = report(value)
     except ZoneInfoNotFoundError:
         value = failure('timezone_unavailable', '缺少IANA时区数据', '安装操作系统时区数据库或Python tzdata后重试。')
     except HTTPError as exc:

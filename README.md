@@ -10,7 +10,7 @@
 hermes skills tap add RobinLu-hhh/csci599-a3-hermes-skills
 hermes skills install RobinLu-hhh/csci599-a3-hermes-skills/a3-weather
 hermes skills list
-hermes chat -t skills,terminal -s a3-weather -q '使用 a3-weather 查询示例城市今天和明天的天气，保留日期、摄氏度、降雨概率、timezone、fetchedAt 与来源。'
+hermes chat -t skills,terminal -s a3-weather -q '请先读取 a3-weather 技能并实际运行随技能安装的 forecast.py 查询示例城市今天和明天的天气，然后完整引用本次工具 JSON 的 report 字段，保留两天数据与来源，不用示例数字。'
 ```
 
 保留第三方技能的安全扫描结果；不要用 `--force` 绕过危险判定。技能在新会话中加载。固定版本 CLI 的安装命令没有 `--ref` 参数；复核时记录仓库完整 commit 和安装文件哈希，避免下载期间分支变动。
@@ -46,7 +46,7 @@ Python 未安装时先安装 Python；缺解释器时脚本不能产生 JSON。m
 
 ## 版本、升级与重装
 
-当前版本 1.0.2，固定参考环境 Hermes v0.22.7 / Python 3.14.9 Linux；标准库脚本另在 macOS Python 3.11 验证。其他 Hermes/操作系统组合未宣称通过。
+当前版本 1.0.3，固定参考环境 Hermes v0.22.7 / Python 3.14.9 Linux；标准库脚本另在 macOS Python 3.11 验证。其他 Hermes/操作系统组合未宣称通过。
 
 更新前备份自己的技能修改和旧 commit。先查看 `hermes skills update --help`、`hermes skills uninstall --help`，使用当前 CLI 支持的操作；不要假定所有版本参数一致。更新后重新执行一次真实天气任务。失败可用 `hermes skills uninstall a3-weather` 后，从同一 tap 的上一已验收内容重装并核对文件哈希；仓库分支变动时先确认内容，不能用直链冒充 tap 安装。曾手工安装同名天气插件者应使用干净 HERMES_HOME，避免旧工具掩盖新安装失败。
 
