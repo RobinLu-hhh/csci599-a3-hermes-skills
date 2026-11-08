@@ -1,0 +1,5 @@
+# Changelog
+
+## 1.0.0
+
+原创固定示例城市天气技能。标准库Python脚本；真实Open-Meteo预报；严格日期/有限数值验证；有界JSON错误。数据按Open-Meteo CC BY 4.0署名。初稿与校验/CLI由Codex辅助编写，持有人负责理解、验证与维护。
